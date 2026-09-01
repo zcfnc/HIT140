@@ -1,0 +1,63 @@
+player,team,matches,starts,minutes,shots_on_target_faced,saves,save_pct,progressed_to_knockout,progression_group,final_stage
+Yazeed Abulaila,Jordan,3,3,270,16,8,50.0,No,Group Stage Eliminated,Group Stage
+Mahmoud Abunada,Qatar,3,3,270,22,12,54.5,No,Group Stage Eliminated,Group Stage
+Alisson,Brazil,5,5,450,18,14,77.8,Yes,Knockout,Round of 16
+Benjamin Asare,Ghana,3,2,225,10,8,80.0,Yes,Knockout,Round of 32
+Lawrence Ati-Zigi,Ghana,2,2,135,9,8,88.9,Yes,Knockout,Round of 32
+Ahmed Basil,Iraq,2,2,135,7,3,42.9,No,Group Stage Eliminated,Group Stage
+Patrick Beach,Australia,4,4,388,17,14,82.4,Yes,Knockout,Round of 32
+Alireza Beiranvand,Iran,3,3,270,18,15,83.3,No,Group Stage Eliminated,Group Stage
+Oussama Benbot,Algeria,1,1,90,3,0,0.0,Yes,Knockout,Round of 32
+Yassine Bounou,Morocco,6,6,570,20,14,70.0,Yes,Knockout,Quarter-final
+Uğurcan Çakır,Türkiye,3,3,270,13,8,61.5,No,Group Stage Eliminated,Group Stage
+Mouhib Chamakh,Tunisia,1,1,90,6,1,16.7,No,Group Stage Eliminated,Group Stage
+Diogo Costa,Portugal,5,5,450,22,19,86.4,Yes,Knockout,Round of 16
+Thibaut Courtois,Belgium,6,6,550,20,14,70.0,Yes,Knockout,Quarter-final
+Maxime Crépeau,Canada,5,5,450,12,6,50.0,Yes,Knockout,Round of 16
+Max Crocombe,New Zealand,3,3,270,21,11,52.4,No,Group Stage Eliminated,Group Stage
+Aymen Dahmen,Tunisia,2,2,180,12,5,41.7,No,Group Stage Eliminated,Group Stage
+Mory Diaw,Senegal,3,2,238,7,4,57.1,Yes,Knockout,Round of 32
+Yahia Fofana,Côte d'Ivoire,4,4,360,13,9,69.2,Yes,Knockout,Round of 32
+Matt Freese,USA,4,4,360,13,8,61.5,Yes,Knockout,Round of 16
+Hernán Galíndez,Ecuador,4,4,360,13,9,69.2,Yes,Knockout,Round of 32
+Orlando Gill,Paraguay,5,5,480,29,23,79.3,Yes,Knockout,Round of 16
+Angus Gunn,Scotland,3,3,270,12,8,66.7,No,Group Stage Eliminated,Group Stage
+Jalal Hassan,Iraq,2,1,135,16,8,50.0,No,Group Stage Eliminated,Group Stage
+Dean Henderson,England,1,1,90,9,5,55.6,Yes,Knockout,Third place
+Gregor Kobel,Switzerland,6,6,600,26,20,76.9,Yes,Knockout,Quarter-final
+Matej Kovar,Czechia,3,3,270,15,9,60.0,No,Group Stage Eliminated,Group Stage
+Senne Lammens,Belgium,1,0,20,3,2,66.7,Yes,Knockout,Quarter-final
+Dominik Livaković,Croatia,4,4,360,17,10,58.8,Yes,Knockout,Round of 32
+Mike Maignan,France,8,8,720,22,12,54.5,Yes,Knockout,Fourth place
+Emiliano Martínez,Argentina,8,8,810,28,20,71.4,Yes,Knockout,Runner-up
+Édouard Mendy,Senegal,2,2,152,14,8,57.1,Yes,Knockout,Round of 32
+Orlando Mosquera,Panama,3,3,270,11,7,63.6,No,Group Stage Eliminated,Group Stage
+Lionel Mpasi,DR Congo,4,4,360,19,14,73.7,Yes,Knockout,Round of 32
+Fernando Muslera,Uruguay,3,3,225,8,4,50.0,No,Group Stage Eliminated,Group Stage
+Abduvohid Nematov,Uzbekistan,2,2,180,13,5,38.5,No,Group Stage Eliminated,Group Stage
+Manuel Neuer,Germany,4,4,390,10,5,50.0,Yes,Knockout,Round of 32
+Kristoffer Nordfeldt,Sweden,2,2,180,9,3,33.3,Yes,Knockout,Round of 32
+Ørjan Nyland,Norway,5,5,480,22,15,68.2,Yes,Knockout,Quarter-final
+Guillermo Ochoa,Mexico,1,0,13,0,0,,Yes,Knockout,Round of 16
+Mohammed Al-Owais,Saudi Arabia,3,3,270,21,16,76.2,No,Group Stage Eliminated,Group Stage
+Jordan Pickford,England,7,7,660,23,15,65.2,Yes,Knockout,Third place
+Johny Placide,Haiti,3,3,270,19,11,57.9,No,Group Stage Eliminated,Group Stage
+Raúl Rangel,Mexico,5,5,437,11,8,72.7,Yes,Knockout,Round of 16
+Sergio Rochet,Uruguay,1,0,45,0,0,,No,Group Stage Eliminated,Group Stage
+Eloy Room,Curaçao,3,3,270,29,20,69.0,No,Group Stage Eliminated,Group Stage
+Mathew Ryan,Australia,1,0,2,0,0,,Yes,Knockout,Round of 32
+Alexander Schlager,Austria,4,4,360,22,13,59.1,Yes,Knockout,Round of 32
+Egil Selvik,Norway,1,1,90,9,5,55.6,Yes,Knockout,Quarter-final
+Kim Seung-gyu,Korea Republic,3,3,270,12,9,75.0,No,Group Stage Eliminated,Group Stage
+Mostafa Shobeir,Egypt,5,5,480,19,12,63.2,Yes,Knockout,Round of 16
+Unai Simón,Spain,8,8,750,11,9,90.9,Yes,Knockout,Champion
+Zion Suzuki,Japan,4,4,360,17,12,70.6,Yes,Knockout,Round of 32
+Matt Turner,USA,1,1,90,3,0,0.0,Yes,Knockout,Round of 16
+Camilo Vargas,Colombia,5,5,480,7,6,85.7,Yes,Knockout,Round of 16
+Nikola Vasilj,Bosnia and Herzegovina,4,4,360,14,6,42.9,Yes,Knockout,Round of 32
+Bart Verbruggen,Netherlands,4,4,390,21,16,76.2,Yes,Knockout,Round of 32
+Vozinha,Cabo Verde,4,4,390,23,18,78.3,Yes,Knockout,Round of 32
+Jacob Widell Zetterström,Sweden,2,2,180,15,11,73.3,Yes,Knockout,Round of 32
+Ronwen Williams,South Africa,4,4,360,15,11,73.3,Yes,Knockout,Round of 32
+Utkir Yusupov,Uzbekistan,1,1,90,4,1,25.0,No,Group Stage Eliminated,Group Stage
+Luca Zidane,Algeria,3,3,270,14,8,57.1,Yes,Knockout,Round of 32
