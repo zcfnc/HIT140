@@ -7,9 +7,11 @@ import pandas as pd
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 DATA_RAW = PROJECT_ROOT / "data_raw"
+DATA_CLEAN = PROJECT_ROOT / "data_clean"
 
 GOALKEEPER_FILE = DATA_RAW / "Goalkeeper_raw.xlsx"
 PROGRESSION_FILE = DATA_RAW / "Team_Progression_raw.xlsx"
+OUTPUT_FILE = DATA_CLEAN / "goalkeeper_merged.csv"
 
 
 # The first four Excel rows are blank rows or webpage-export headings.
@@ -136,9 +138,11 @@ if not left_only_rows.empty:
     raise SystemExit("Do not continue until all left_only records are investigated.")
 
 
-# The merge indicator is no longer needed after successful validation.
-# Keep the merged dataframe in memory for the next analysis stage.
 goalkeeper_merged_df = goalkeeper_merged_df.drop(columns="_merge")
+
+DATA_CLEAN.mkdir(exist_ok=True)
+goalkeeper_merged_df.to_csv(OUTPUT_FILE, index=False)
 
 print("\nMerge validation successful.")
 print("Merged dataframe shape:", goalkeeper_merged_df.shape)
+print("Saved merged dataset to:", OUTPUT_FILE)
