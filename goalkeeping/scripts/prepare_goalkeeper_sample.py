@@ -1,4 +1,4 @@
-"""confirm final sample for the goalkeeper analysis."""
+"""Step 2: Create and validate the locked goalkeeper analysis sample."""
 
 from pathlib import Path
 
@@ -9,10 +9,10 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 MERGED_FILE = PROJECT_ROOT / "data_clean" / "goalkeeper_merged.csv"
 OUTPUT_FILE = PROJECT_ROOT / "data_clean" / "goalkeeper_analysis_sample.csv"
 
-ALPHA = 0.05
 TARGET_GROUPS = ["Knockout", "Group Stage Eliminated"]
 
 
+# Define candidate inclusion-rule summaries.
 def rule_summary(dataframe, name, condition):
     rule_df = dataframe.loc[condition].copy()
     group_counts = rule_df["progression_group"].value_counts()
@@ -28,12 +28,14 @@ def rule_summary(dataframe, name, condition):
     }
 
 
+# Restrict the source data to the two planned progression groups.
 goalkeeper_merged_df = pd.read_csv(MERGED_FILE)
 
 study_frame_df = goalkeeper_merged_df.loc[
     goalkeeper_merged_df["progression_group"].isin(TARGET_GROUPS)
 ].copy()
 
+# Compare the candidate inclusion rules.
 valid_save_pct = study_frame_df["save_pct"].notna()
 
 rule_summary_df = pd.DataFrame(
@@ -58,8 +60,7 @@ rule_summary_df = pd.DataFrame(
     ]
 )
 
-# Locked inclusion rule: valid save_pct, at least 90 minutes, and one
-# highest-minute eligible goalkeeper per team.
+# Apply the locked rule and select one highest-minute goalkeeper per team.
 eligible_goalkeepers_df = study_frame_df.loc[
     valid_save_pct & (study_frame_df["minutes"] >= 90)
 ].copy()
@@ -74,6 +75,7 @@ analysis_df = (
     .copy()
 )
 
+# Validate and save the final 48-goalkeeper sample.
 group_counts = analysis_df["progression_group"].value_counts()
 final_checks = {
     "sample_size": len(analysis_df),
@@ -97,9 +99,5 @@ if any(final_checks[key] != value for key, value in expected_checks.items()):
 
 analysis_df.to_csv(OUTPUT_FILE, index=False)
 
-print("Inclusion-rule comparison:")
 print(rule_summary_df.to_string(index=False))
-print("\nFinal sample:")
 print(pd.Series(final_checks).to_string())
-print(f"\nSaved: {OUTPUT_FILE.name}")
-print(f"Planned method: two-sided Welch t-test, alpha = {ALPHA} (not run).")
