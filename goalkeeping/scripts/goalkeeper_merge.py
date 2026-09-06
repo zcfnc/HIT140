@@ -1,4 +1,4 @@
-"""Step 1: Clean goalkeeper data and merge one progression record per team."""
+"""Step 1: Clean goalkeeper data and merge team progression data."""
 
 from pathlib import Path
 
@@ -13,7 +13,6 @@ GOALKEEPER_FILE = DATA_RAW / "Goalkeeper_raw.xlsx"
 PROGRESSION_FILE = DATA_RAW / "Team_Progression_raw.xlsx"
 OUTPUT_FILE = DATA_CLEAN / "goalkeeper_merged.csv"
 
-# Read and clean goalkeeper statistics.
 goalkeeper_raw_df = pd.read_excel(GOALKEEPER_FILE, skiprows=4)
 
 goalkeeper_clean_df = goalkeeper_raw_df[
@@ -60,7 +59,6 @@ for column in numeric_columns:
         goalkeeper_clean_df[column], errors="coerce"
     )
 
-# Read and standardise team progression data.
 progression_raw_df = pd.read_excel(PROGRESSION_FILE)
 
 progression_clean_df = progression_raw_df[
@@ -71,7 +69,6 @@ progression_clean_df["team"] = (
     progression_clean_df["team"].astype("string").str.strip()
 )
 
-# Align differing team names before merging.
 team_name_mapping = {
     "Bosnia–Herz": "Bosnia and Herzegovina",
     "Congo DR": "DR Congo",
@@ -82,15 +79,9 @@ goalkeeper_clean_df["team"] = goalkeeper_clean_df["team"].replace(
     team_name_mapping
 )
 
-# Validate the one-progression-record-per-team requirement.
-duplicate_progression_teams = progression_clean_df[
-    progression_clean_df["team"].duplicated(keep=False)
-]
-
-if not duplicate_progression_teams.empty:
+if progression_clean_df["team"].duplicated().any():
     raise SystemExit("Fix duplicate progression teams before merging.")
 
-# Merge goalkeeper records with progression data.
 goalkeeper_merged_df = pd.merge(
     goalkeeper_clean_df,
     progression_clean_df,
@@ -100,16 +91,9 @@ goalkeeper_merged_df = pd.merge(
     indicator=True,
 )
 
-# Stop if any goalkeeper record lacks a progression match.
-left_only_rows = goalkeeper_merged_df[
-    goalkeeper_merged_df["_merge"] == "left_only"
-]
-
-if not left_only_rows.empty:
+if (goalkeeper_merged_df["_merge"] == "left_only").any():
     raise SystemExit("Do not continue until all left_only records are investigated.")
 
-
-# Save the validated merged dataset.
 goalkeeper_merged_df = goalkeeper_merged_df.drop(columns="_merge")
 
 DATA_CLEAN.mkdir(exist_ok=True)

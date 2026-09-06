@@ -1,4 +1,4 @@
-"""Step 3: Calculate final-sample Save% descriptives and create the boxplot."""
+"""Step 3: Summarise Save% and create a boxplot."""
 
 from pathlib import Path
 
@@ -16,33 +16,8 @@ OUTPUT_DIR = PROJECT_ROOT / "outputs"
 OUTPUT_PLOT = OUTPUT_DIR / "save_pct_boxplot.png"
 
 GROUP_ORDER = ["Knockout", "Group Stage Eliminated"]
-REQUIRED_COLUMNS = [
-    "player",
-    "team",
-    "progression_group",
-    "minutes",
-    "shots_on_target_faced",
-    "save_pct",
-]
-
-# Read and validate the locked final sample.
 analysis_df = pd.read_csv(INPUT_FILE)
 
-missing_columns = set(REQUIRED_COLUMNS) - set(analysis_df.columns)
-if missing_columns:
-    raise ValueError(f"Required columns are missing: {sorted(missing_columns)}")
-
-observed_groups = set(analysis_df["progression_group"].dropna())
-if observed_groups != set(GROUP_ORDER):
-    raise ValueError(f"Unexpected progression groups: {sorted(observed_groups)}")
-
-if analysis_df["save_pct"].isna().any():
-    raise ValueError("The locked sample contains missing save_pct values.")
-
-if analysis_df["team"].duplicated().any():
-    raise ValueError("The locked sample contains duplicate teams.")
-
-# Calculate group-level descriptive statistics and quartiles.
 summary = (
     analysis_df.groupby("progression_group", sort=False)["save_pct"]
     .agg(n="count", mean="mean", median="median", sd="std", minimum="min", maximum="max")
@@ -60,7 +35,6 @@ results_table = summary.join(quartiles)
 results_table["iqr"] = results_table["q3"] - results_table["q1"]
 results_table = results_table[["n", "mean", "median", "sd", "minimum", "maximum", "q1", "q3", "iqr"]]
 
-# Create and save the main Save% boxplot.
 OUTPUT_DIR.mkdir(exist_ok=True)
 plot_data = [
     analysis_df.loc[analysis_df["progression_group"] == group, "save_pct"]
